@@ -64,7 +64,7 @@
 
     nav a {
       text-decoration: none;
-      color: #fff;
+      color: var(--charcoal);
       font-size: 0.75rem;
       letter-spacing: 3px;
       text-transform: uppercase;
@@ -84,16 +84,28 @@
 
     /* ── Hero ── */
     .hero {
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: var(--charcoal);
-      color: #fff;
+      background: var(--cream);
+      color: var(--charcoal);
       position: relative;
       padding: 3rem 2rem 2rem;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        url('photos/naomi-beer.png') left center / 50% 100% no-repeat,
+        url('photos/sean-hero.png') right center / 50% 100% no-repeat;
+      opacity: 0.12;
+      filter: grayscale(100%);
     }
 
     .hero::after {
@@ -108,18 +120,18 @@
 
     .hero-photos {
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
       margin-bottom: 2.5rem;
       position: relative;
       z-index: 1;
     }
 
     .hero-photos img {
-      width: 240px;
-      height: 320px;
+      width: 280px;
+      height: 380px;
       object-fit: cover;
       border-radius: 3px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
     }
 
     .hero-photos img:first-child {
@@ -130,10 +142,17 @@
       transform: rotate(2deg);
     }
 
-    @media (max-width: 550px) {
+    @media (max-width: 650px) {
       .hero-photos img {
-        width: 160px;
-        height: 220px;
+        width: 180px;
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero-photos img {
+        width: 145px;
+        height: 200px;
       }
     }
 
@@ -195,12 +214,13 @@
       font-size: 0.65rem;
       letter-spacing: 3px;
       text-transform: uppercase;
+      color: var(--text-light);
     }
 
     .scroll-line {
       width: 1px;
       height: 40px;
-      background: #fff;
+      background: var(--charcoal);
       animation: scrollPulse 2s ease-in-out infinite;
     }
 
@@ -809,7 +829,7 @@
 <section class="hero" id="top">
   <div class="hero-photos">
     <img src="photos/naomi-beer.png" alt="Naomi">
-    <img src="photos/sean-drink.png" alt="Sean">
+    <img src="photos/sean-hero.png" alt="Sean">
   </div>
   <p class="hero-subtitle">Together with their families</p>
   <h1>
@@ -820,7 +840,6 @@
   <p class="hero-date">The Tenth of April, Two Thousand and Twenty-Seven</p>
   <p class="hero-tagline">Get ready to party!</p>
   <div class="scroll-indicator">
-    <span>Scroll</span>
     <div class="scroll-line"></div>
   </div>
 </section>
