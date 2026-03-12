@@ -380,37 +380,58 @@
       line-height: 1.7;
     }
 
-    /* ── Details Grid ── */
-    .details-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2.5rem;
-      max-width: 800px;
+    /* ── Details Card ── */
+    .details-card {
+      max-width: 600px;
       margin: 0 auto;
-    }
-
-    .detail-block {
+      background: var(--sage);
+      color: #fff;
+      border-radius: 3px;
+      padding: 3.5rem 3rem;
       text-align: center;
-      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
     }
 
-    .detail-block .detail-icon {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+    .details-card .detail-row {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
     }
 
-    .detail-block h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: var(--charcoal);
+    .details-card .detail-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .details-card .detail-row:first-child {
+      padding-top: 0;
+    }
+
+    .details-card .detail-label {
+      font-size: 0.65rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
       margin-bottom: 0.5rem;
+      font-weight: 500;
     }
 
-    .detail-block p {
+    .details-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+
+    .details-card p {
       font-size: 0.88rem;
-      color: var(--text-light);
+      color: rgba(255,255,255,0.85);
       line-height: 1.7;
+    }
+
+    .details-card em {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.82rem;
     }
 
     /* ── Schedule ── */
@@ -782,7 +803,7 @@
     <span id="sean-name" style="cursor:pointer">Sean</span>
   </h1>
   <p class="hero-date">The Tenth of April, Two Thousand and Twenty-Seven</p>
-  <p class="hero-tagline">She said yes. We're still not sure why.</p>
+  <p class="hero-tagline">Get ready to party!</p>
   <div class="scroll-indicator">
     <span>Scroll</span>
     <div class="scroll-line"></div>
@@ -796,20 +817,19 @@
   <div class="section-divider fade-in"></div>
 
   <p class="body-text fade-in">
-    <span class="highlight">Naomi Priest</span> is a project manager in healthtech — a woman who runs half marathons, keeps complex systems on track, and radiates calm competence in all things.
-    <span class="highlight">Sean Gleeson</span> is a brilliant musician and trainee music teacher with a huge heart, an infectious laugh, and a gift for making every room he walks into more fun.
+    <span class="highlight">Naomi Priest</span> is a project manager — a woman who runs half marathons, keeps complex systems on track, and radiates calm competence in all things.
+    <span class="highlight">Sean Gleeson</span> is a brilliant musician and teacher with a huge heart, an infectious laugh, and a gift for making every room he walks into more fun.
   </p>
   <p class="body-text fade-in">
-    They met doing <span class="highlight">Leeds Opera</span> — Naomi on stage, Sean conducting — and it was, by all accounts, a done deal fairly quickly.
-    Sean's brother Joe (a doctor, as he will tell you within ninety seconds of meeting you) saw it coming before either of them did.
+    They met at <span class="highlight">Leeds Opera</span> — Naomi on stage, Sean conducting — and the rest is history.
   </p>
   <p class="body-text fade-in">
-    Since then, Naomi has got Sean into running — they're training for a half marathon together — and they've recently bought a house that they're doing extensive renovations on.
+    Naomi has reluctantly got Sean into running — they're running another half marathon together — and they've recently bought a house that they're doing extensive renovations on.
     Planning a wedding and a house renovation at the same time is either deeply impressive or mildly unhinged. Probably both. They're smashing it.
   </p>
 
   <div class="quote-block fade-in">
-    He can play the piano like nobody's business, he makes me laugh every single day, and he is going to be the most wonderful husband.
+    He is alright I guess
     <br><small style="font-size: 0.6em; font-style: normal; color: var(--text-light);">— Naomi</small>
   </div>
 </section>
@@ -843,13 +863,6 @@
       </div>
     </div>
     <div class="gallery-item fade-in">
-      <img src="photos/sean-cooking.png" alt="A questionable bowl of pasta">
-      <div class="gallery-caption">
-        <p class="caption-title">Sean's Cooking</p>
-        <p>Three courses at the wedding breakfast will be considerably fancier than this. We include it here as a warning and a prayer.</p>
-      </div>
-    </div>
-    <div class="gallery-item fade-in">
       <img src="photos/naomi-sean-race.png" alt="Naomi and Sean after finishing a 10K">
       <div class="gallery-caption">
         <p class="caption-title">The Runners</p>
@@ -873,64 +886,6 @@
   </div>
 </section>
 
-<!-- ════════════ TIMELINE ════════════ -->
-<section>
-  <p class="section-label fade-in">The Journey</p>
-  <h2 class="section-title fade-in">How We Got Here</h2>
-  <div class="section-divider fade-in"></div>
-
-  <div class="timeline">
-    <div class="timeline-item fade-in">
-      <p class="timeline-year">The First Meeting</p>
-      <h3 class="timeline-title">Leeds Opera</h3>
-      <p class="timeline-text">
-        They met doing Leeds Opera — Naomi performing, Sean conducting. There was an immediate connection, 
-        though Sean will insist he played it cool. He did not.
-        His parents, Tony and Ann-Marie — the kindest, warmest people you'll ever meet — were thrilled from day one.
-      </p>
-    </div>
-    <div class="timeline-item fade-in">
-      <p class="timeline-year">The Am Dram Era</p>
-      <h3 class="timeline-title">A Man of Many Talents</h3>
-      <p class="timeline-text">
-        Between conducting, teaching, and performing in am dram productions, Sean spent many an evening and weekend on stage or in rehearsal.
-        A fantastic musician with a real flair for the dramatic. Naomi came to every show and was his biggest fan — a role she takes very seriously.
-      </p>
-    </div>
-    <div class="timeline-item fade-in">
-      <p class="timeline-year">The Running Chapter</p>
-      <h3 class="timeline-title">Lacing Up Together</h3>
-      <p class="timeline-text">
-        Naomi, a dedicated runner, got Sean into it too — and fair play to him, he's committed.
-        They're training for a half marathon together in May with Naomi's two sisters. A proper family affair.
-      </p>
-    </div>
-    <div class="timeline-item fade-in">
-      <p class="timeline-year">The Proposal</p>
-      <h3 class="timeline-title">She Said Yes</h3>
-      <p class="timeline-text">
-        Sean planned a genuinely beautiful proposal. Naomi cried. Sean cried harder — which will surprise absolutely nobody.
-        His sister Kerry approved wholeheartedly. Even her magnificently chonky cat, Haku, seemed pleased.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════ ACCENT BAND ════════════ -->
-<div class="accent-band">
-  <p class="section-label fade-in">A Note from the Bride</p>
-  <h2 class="section-title fade-in">Why Him?</h2>
-  <div class="section-divider fade-in"></div>
-  <p class="body-text fade-in" style="max-width: 580px; margin: 0 auto;">
-    He's the kindest, funniest, most talented person I know. He lights up every room, he'll conduct along to hold music on the phone, 
-    and he is going to be the most wonderful music teacher. He is corny beyond belief — he gets it from Tony and Ann-Marie — 
-    and he will absolutely cry reading this. He makes me laugh every single day. I love him ridiculously.
-  </p>
-  <p class="body-text fade-in" style="max-width: 580px; margin: 1.5rem auto 0; font-style: italic; opacity: 0.8;">
-    He can also serenade me on demand. Not all of us can say that.
-  </p>
-</div>
-
 <!-- ════════════ WEDDING PARTY ════════════ -->
 <section id="party">
   <p class="section-label fade-in">The Brave Volunteers</p>
@@ -942,9 +897,13 @@
       <div class="card-icon">🤵</div>
       <h3>Joe Gleeson</h3>
       <p class="card-role">Best Man</p>
-      <p>Sean's older brother and — as he will mention within ninety seconds — a doctor. Has been preparing the best man's speech since roughly 1997 and is alarmingly excited about it. Sean should be very, very worried. Equally corny as his brother. It's genetic.</p>
+      <p>Sean's older brother. Also a doctor, which he will find a way to mention. Has been preparing the best man's speech since roughly 1997 and is alarmingly excited about it. Sean should be worried. Equally corny as his brother. It's genetic.</p>
     </div>
   </div>
+
+  <p class="body-text fade-in" style="margin-top: 2.5rem; font-style: italic; color: var(--text-light);">
+    There are more wonderful people in the wedding party, but Joe wasn't around when "his" engagement gift was being put together. So he's the only one who got a write-up. Perks of being the best man.
+  </p>
 </section>
 
 <!-- ════════════ DETAILS ════════════ -->
@@ -953,21 +912,22 @@
   <h2 class="section-title fade-in">Wedding Details</h2>
   <div class="section-divider fade-in"></div>
 
-  <div class="details-grid">
-    <div class="detail-block fade-in">
-      <div class="detail-icon">🏡</div>
-      <h3>Venue</h3>
-      <p>The Normans<br>Normans Farm, Bilbrough<br>York, YO23 3PQ<br><em>It's absolutely gorgeous. You're going to love it.</em></p>
+  <div class="details-card fade-in">
+    <div class="detail-row">
+      <p class="detail-label">When</p>
+      <h3>Saturday, 10th April 2027</h3>
+      <em>You're not going to want to miss this</em>
     </div>
-    <div class="detail-block fade-in">
-      <div class="detail-icon">📅</div>
-      <h3>Date</h3>
-      <p>10th April 2027<br><em>Save the date. Sean has been counting down for months.</em></p>
+    <div class="detail-row">
+      <p class="detail-label">Where</p>
+      <h3>The Normans</h3>
+      <p>Normans Farm, Bilbrough, York, YO23 3PQ</p>
+      <em>It's absolutely gorgeous. You're going to love it.</em>
     </div>
-    <div class="detail-block fade-in">
-      <div class="detail-icon">👗</div>
-      <h3>Dress Code</h3>
-      <p>Formal / Black Tie Optional<br><em>Dress to impress. You know the drill.</em></p>
+    <div class="detail-row">
+      <p class="detail-label">Dress Code</p>
+      <h3>Formal / Black Tie Optional</h3>
+      <em>Dress to impress. You know the drill.</em>
     </div>
   </div>
 </section>
@@ -976,6 +936,7 @@
 <section>
   <p class="section-label fade-in">On the Day</p>
   <h2 class="section-title fade-in">Order of Events</h2>
+  <p class="body-text fade-in" style="margin-top: -0.5rem; font-style: italic; color: var(--text-light); font-size: 0.88rem;">(I'm completely guessing here)</p>
   <div class="section-divider fade-in"></div>
 
   <ul class="schedule-list">
@@ -1041,37 +1002,37 @@
     <div class="faq-item fade-in">
       <div class="faq-question">Can I bring a plus one?</div>
       <div class="faq-answer">
-        <p>If your invitation says "and guest," absolutely. If it doesn't, we're afraid not — we love you, but we do not love you plus a person we've never met. Sean tried to invite his entire band and the full cast of his last am dram production. Naomi was firm.</p>
+        <p>Maybe!</p>
       </div>
     </div>
     <div class="faq-item fade-in">
       <div class="faq-question">Are children welcome?</div>
       <div class="faq-answer">
-        <p>We adore your children. We really do. But this is an adults-only celebration. Think of it as a rare and well-deserved night off.</p>
+        <p>Maybe!</p>
       </div>
     </div>
     <div class="faq-item fade-in">
       <div class="faq-question">What should I wear?</div>
       <div class="faq-answer">
-        <p>Formal attire, please. Suits, dresses, something you'd feel smashing in. It's going to be a beautiful day — dress accordingly.</p>
+        <p>Maybe!</p>
       </div>
     </div>
     <div class="faq-item fade-in">
       <div class="faq-question">Is there parking?</div>
       <div class="faq-answer">
-        <p>Yes, The Normans has parking. However, given the open bar situation, we'd strongly recommend taxis. The venue is in Bilbrough, just outside York — very easy to get to.</p>
+        <p>Maybe!</p>
       </div>
     </div>
     <div class="faq-item fade-in">
       <div class="faq-question">What about gifts?</div>
       <div class="faq-answer">
-        <p>Your presence is the greatest gift. Truly. But if you're feeling generous, we've set up a small honeymoon fund. Sean wanted to register at Argos. Naomi has handled it. (This website, incidentally, is an engagement gift from Joe and Bansri. Joe did want to mention that he's a doctor.)</p>
+        <p>Maybe!</p>
       </div>
     </div>
     <div class="faq-item fade-in">
       <div class="faq-question">Will there be vegetarian options?</div>
       <div class="faq-answer">
-        <p>Absolutely. We're catering for all dietary requirements — just let us know on your RSVP and we'll make sure you're looked after.</p>
+        <p>Maybe!</p>
       </div>
     </div>
   </div>
@@ -1085,8 +1046,7 @@
 
   <p class="body-text fade-in" style="color: rgba(255,255,255,0.85); margin-bottom: 2.5rem;">
     Please let us know if you can make it by the 1st of February.<br>
-    If you decline, Naomi will understand. Sean will pretend not to be devastated.<br>
-    He will fail.
+    If you decline, Naomi and Sean will understand. Joe will eat your canapes.
   </p>
 
   <form class="rsvp-form fade-in" onsubmit="handleRSVP(event)">
@@ -1098,9 +1058,9 @@
       <label for="attendance">Will You Be Joining Us?</label>
       <select id="attendance">
         <option value="">Please select</option>
-        <option value="yes">Joyfully accepts — wouldn't miss it</option>
-        <option value="no">Regretfully declines — will think of you fondly</option>
-        <option value="maybe">It's complicated — Sean still owes me money</option>
+        <option value="yes">Joyfully accepts! Wouldn't miss it</option>
+        <option value="no">Regretfully declines. Will think of you fondly</option>
+        <option value="maybe">It's complicated. Sean still owes me money</option>
       </select>
     </div>
     <div class="form-group">
@@ -1109,7 +1069,7 @@
     </div>
     <div class="form-group">
       <label for="song">Song Request</label>
-      <input type="text" id="song" placeholder="The band takes requests — make it a good one">
+      <input type="text" id="song" placeholder="The band takes requests. Make it a good one">
     </div>
     <div class="form-group">
       <label for="message">A Message for the Couple</label>
@@ -1122,16 +1082,79 @@
 <!-- ════════════ FOOTER ════════════ -->
 <footer>
   <p class="footer-names">Naomi &amp; Sean</p>
-  <p class="footer-tagline">Two becoming one — we couldn't be happier</p>
+  <p class="footer-tagline">Two becoming one. We couldn't be happier.</p>
   <p>10 · 04 · 2027</p>
   <p style="margin-top: 1rem; font-size: 0.65rem; opacity: 0.5;">An engagement gift from Joe &amp; Bansri, with love (and very little restraint)</p>
 </footer>
+
+<!--
+  ╔══════════════════════════════════════════════════════╗
+  ║          🎉  SECRET EASTER EGGS  🎉                 ║
+  ╠══════════════════════════════════════════════════════╣
+  ║                                                      ║
+  ║  So you're the nosy type. We respect that.           ║
+  ║  Here's what you're looking for:                     ║
+  ║                                                      ║
+  ║  KEYBOARD TRIGGERS (just type while browsing):       ║
+  ║    joe        → Did someone say doctor?              ║
+  ║    haku       → Cat paw cursor for 10 seconds        ║
+  ║    doctor     → Joe in his element                   ║
+  ║    tony       → Father of the groom                  ║
+  ║    kerry      → The coolest Gleeson                  ║
+  ║    ann-marie  → Mother of the groom                  ║
+  ║    cute       → The Gleeson kids, once upon a time   ║
+  ║    strong     → A special video                      ║
+  ║                                                      ║
+  ║  OTHER TRIGGERS:                                     ║
+  ║    Konami code (↑↑↓↓←→←→BA) → The real MVP          ║
+  ║    Click "Sean" in the hero 3 times → Sad trombone   ║
+  ║    Shake your phone → Confetti!                      ║
+  ║    Submit the RSVP form → A friendly disclaimer      ║
+  ║                                                      ║
+  ║  With love from Joe & Bansri x                       ║
+  ╚══════════════════════════════════════════════════════╝
+-->
 
 <div class="ee-toast" id="ee-toast"></div>
 
 <div id="confetti-overlay">
   <canvas id="confetti-canvas"></canvas>
   <div id="confetti-text">WE'RE GETTING MARRIED!</div>
+</div>
+
+<div id="annmarie-overlay" style="display:none; position:fixed; inset:0; z-index:9999; background:var(--cream); flex-direction:column; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
+  <img src="photos/ann-marie.png" alt="Ann-Marie" style="max-height:70vh; max-width:90vw; border-radius:4px; box-shadow:0 20px 60px rgba(0,0,0,0.15);">
+  <p style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:var(--charcoal); margin-top:1.5rem; font-style:italic;">Mother of the groom. Absolute queen.</p>
+  <p style="font-size:0.65rem; color:var(--sage); margin-top:2rem;">click anywhere to dismiss</p>
+</div>
+
+<div id="cute-overlay" style="display:none; position:fixed; inset:0; z-index:9999; background:var(--cream); flex-direction:column; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
+  <img src="photos/cute.png" alt="The Gleeson kids" style="max-height:70vh; max-width:90vw; border-radius:4px; box-shadow:0 20px 60px rgba(0,0,0,0.15);">
+  <p style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:var(--charcoal); margin-top:1.5rem; font-style:italic;">The originals.</p>
+  <p style="font-size:0.65rem; color:var(--sage); margin-top:2rem;">click anywhere to dismiss</p>
+</div>
+
+<div id="doctor-overlay" style="display:none; position:fixed; inset:0; z-index:9999; background:var(--cream); flex-direction:column; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
+  <img src="photos/doctor.png" alt="Joe" style="max-height:70vh; max-width:90vw; border-radius:4px; box-shadow:0 20px 60px rgba(0,0,0,0.15);">
+  <p style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:var(--charcoal); margin-top:1.5rem; font-style:italic;">Did someone say doctor?</p>
+  <p style="font-size:0.65rem; color:var(--sage); margin-top:2rem;">click anywhere to dismiss</p>
+</div>
+
+<div id="kerry-overlay" style="display:none; position:fixed; inset:0; z-index:9999; background:var(--cream); flex-direction:column; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
+  <img src="photos/kerry.png" alt="Kerry" style="max-height:70vh; max-width:90vw; border-radius:4px; box-shadow:0 20px 60px rgba(0,0,0,0.15);">
+  <p style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:var(--charcoal); margin-top:1.5rem; font-style:italic;">The coolest Gleeson. Not even close.</p>
+  <p style="font-size:0.65rem; color:var(--sage); margin-top:2rem;">click anywhere to dismiss</p>
+</div>
+
+<div id="tony-overlay" style="display:none; position:fixed; inset:0; z-index:9999; background:var(--cream); flex-direction:column; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
+  <img src="photos/tony.png" alt="Tony" style="max-height:70vh; max-width:90vw; border-radius:4px; box-shadow:0 20px 60px rgba(0,0,0,0.15);">
+  <p style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:var(--charcoal); margin-top:1.5rem; font-style:italic;">Father of the groom. Legend.</p>
+  <p style="font-size:0.65rem; color:var(--sage); margin-top:2rem;">click anywhere to dismiss</p>
+</div>
+
+<div id="strong-overlay" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(58,58,58,0.85); flex-direction:column; justify-content:center; align-items:center; cursor:pointer; backdrop-filter:blur(4px);" onclick="this.style.display='none'; this.querySelector('video').pause();">
+  <video src="photos/strong.mp4" style="max-height:75vh; max-width:90vw; border-radius:4px; box-shadow:0 20px 60px rgba(0,0,0,0.3);" playsinline></video>
+  <p style="font-size:0.65rem; color:rgba(255,255,255,0.5); margin-top:1.5rem;">click anywhere to dismiss</p>
 </div>
 
 <div id="konami-overlay" style="display:none; position:fixed; inset:0; z-index:9999; background:var(--cream); flex-direction:column; justify-content:center; align-items:center; cursor:pointer;" onclick="this.style.display='none'">
@@ -1193,6 +1216,34 @@
     if (typedKeys.endsWith('haku')) {
       typedKeys = '';
       activateCatPaw();
+    }
+    if (typedKeys.endsWith('ann-marie') || typedKeys.endsWith('annmarie')) {
+      typedKeys = '';
+      document.getElementById('annmarie-overlay').style.display = 'flex';
+    }
+    if (typedKeys.endsWith('cute')) {
+      typedKeys = '';
+      document.getElementById('cute-overlay').style.display = 'flex';
+    }
+    if (typedKeys.endsWith('doctor')) {
+      typedKeys = '';
+      document.getElementById('doctor-overlay').style.display = 'flex';
+    }
+    if (typedKeys.endsWith('kerry')) {
+      typedKeys = '';
+      document.getElementById('kerry-overlay').style.display = 'flex';
+    }
+    if (typedKeys.endsWith('tony')) {
+      typedKeys = '';
+      document.getElementById('tony-overlay').style.display = 'flex';
+    }
+    if (typedKeys.endsWith('strong')) {
+      typedKeys = '';
+      const overlay = document.getElementById('strong-overlay');
+      const video = overlay.querySelector('video');
+      overlay.style.display = 'flex';
+      video.currentTime = 0;
+      video.play();
     }
   });
 
@@ -1344,7 +1395,7 @@
         <p style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--charcoal);font-weight:300;margin-bottom:1rem;">Hold on a moment</p>
         <p style="font-size:0.9rem;color:var(--text);line-height:1.8;margin-bottom:1.5rem;">
           This website is an engagement gift from Joe &amp; Bansri and is <strong>not</strong> the official wedding RSVP.
-          Your response hasn't actually gone anywhere — please don't panic.
+          Your response hasn't actually gone anywhere. Please don't panic.
         </p>
         <p style="font-size:0.88rem;color:var(--text-light);line-height:1.7;margin-bottom:1.5rem;">
           The real invitations will be coming separately. When they do, please RSVP through the proper channel so Naomi can do her project-manager thing.
