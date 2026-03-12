@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naomi & Sean — Against All Odds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --sage: #9CAF88;
+      --sage-light: #D4DFC7;
+      --sage-dark: #6B7F5E;
+      --cream: #FDF8F0;
+      --warm-white: #FFFDF9;
+      --gold: #C5A55A;
+      --gold-light: #E8D5A3;
+      --charcoal: #3A3A3A;
+      --text: #4A4A4A;
+      --text-light: #7A7A7A;
+      --blush: #F2E0D6;
+      --dusty-rose: #C9A9A6;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.7;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      transition: all 0.4s ease;
+      background: transparent;
+    }
+
+    nav.scrolled {
+      background: rgba(253, 248, 240, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.06);
+      padding: 0.6rem 2rem;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    nav.scrolled a { color: var(--charcoal); }
+    nav a:hover { color: var(--gold); }
+
+    nav .nav-monogram {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      letter-spacing: 4px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(
+        180deg,
+        rgba(58, 58, 58, 0.3) 0%,
+        rgba(58, 58, 58, 0.15) 50%,
+        rgba(156, 175, 136, 0.2) 100%
+      ),
+      url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80') center/cover no-repeat;
+      color: #fff;
+      position: relative;
+      padding: 2rem;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(to top, var(--cream), transparent);
+    }
+
+    .hero-subtitle {
+      font-size: 0.8rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 .ampersand {
+      display: block;
+      font-size: 0.4em;
+      font-style: italic;
+      margin: 0.3em 0;
+      opacity: 0.8;
+    }
+
+    .hero-date {
+      font-size: 0.85rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-top: 1.5rem;
+      font-weight: 400;
+    }
+
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      opacity: 0.85;
+      font-weight: 300;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 140px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 1;
+    }
+
+    .scroll-indicator span {
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: #fff;
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
+      50% { opacity: 1; transform: scaleY(1); }
+    }
+
+    /* ── Sections ── */
+    section {
+      padding: 6rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--sage);
+      text-align: center;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      text-align: center;
+      font-weight: 300;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+    }
+
+    .section-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1.5rem auto 3rem;
+    }
+
+    .body-text {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text);
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .body-text + .body-text { margin-top: 1.5rem; }
+
+    .highlight {
+      color: var(--sage-dark);
+      font-weight: 500;
+    }
+
+    .quote-block {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      text-align: center;
+      color: var(--sage-dark);
+      max-width: 600px;
+      margin: 3rem auto;
+      line-height: 1.5;
+      position: relative;
+      padding: 0 2rem;
+    }
+
+    .quote-block::before {
+      content: '"';
+      font-size: 4rem;
+      position: absolute;
+      top: -1.5rem;
+      left: -0.5rem;
+      color: var(--sage-light);
+      font-style: normal;
+    }
+
+    /* ── Full-width accent band ── */
+    .accent-band {
+      background: var(--sage);
+      color: #fff;
+      padding: 5rem 2rem;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .accent-band .section-label { color: var(--sage-light); }
+    .accent-band .section-title { color: #fff; }
+    .accent-band .section-divider { background: var(--gold-light); }
+    .accent-band .body-text { color: rgba(255,255,255,0.9); }
+
+    /* ── Timeline ── */
+    .timeline {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--sage-light);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      padding-left: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.35rem;
+      top: 0.5rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--sage);
+      border: 2px solid var(--cream);
+    }
+
+    .timeline-year {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .timeline-text {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--text-light);
+    }
+
+    /* ── Wedding Party Cards ── */
+    .party-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .party-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      background: var(--warm-white);
+      border: 1px solid rgba(197, 165, 90, 0.15);
+      border-radius: 2px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .party-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    }
+
+    .party-card .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .party-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 0.2rem;
+    }
+
+    .party-card .card-role {
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--sage);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .party-card p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ── Details Grid ── */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .detail-block {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .detail-block .detail-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .detail-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+    }
+
+    .detail-block p {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ── Schedule ── */
+    .schedule-list {
+      max-width: 550px;
+      margin: 0 auto;
+      list-style: none;
+    }
+
+    .schedule-item {
+      display: flex;
+      align-items: baseline;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid rgba(156, 175, 136, 0.15);
+    }
+
+    .schedule-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--sage-dark);
+      min-width: 110px;
+    }
+
+    .schedule-event h4 {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      letter-spacing: 1px;
+    }
+
+    .schedule-event p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 0.2rem;
+    }
+
+    /* ── FAQ ── */
+    .faq-list {
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(156, 175, 136, 0.15);
+      padding: 1.5rem 0;
+    }
+
+    .faq-question {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 1.4rem;
+      color: var(--sage);
+      transition: transform 0.3s;
+      font-weight: 300;
+    }
+
+    .faq-item.open .faq-question::after { transform: rotate(45deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-top: 1rem;
+    }
+
+    .faq-answer p {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* ── RSVP ── */
+    .rsvp-section {
+      background: linear-gradient(165deg, var(--sage) 0%, var(--sage-dark) 100%);
+      color: #fff;
+      padding: 6rem 2rem;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .rsvp-section .section-label { color: var(--sage-light); }
+    .rsvp-section .section-title { color: #fff; }
+    .rsvp-section .section-divider { background: var(--gold-light); }
+
+    .rsvp-form {
+      max-width: 450px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 2px;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.45);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold-light);
+    }
+
+    .form-group select option { color: var(--charcoal); }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+
+    .btn-rsvp {
+      display: inline-block;
+      padding: 1rem 3rem;
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 1rem;
+    }
+
+    .btn-rsvp:hover {
+      background: var(--gold-light);
+      color: var(--charcoal);
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.6);
+    }
+
+    footer .footer-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: #fff;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+    }
+
+    footer .footer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--sage-light);
+      margin-bottom: 2rem;
+    }
+
+    footer p {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+    }
+
+    /* ── Animations ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      nav ul { gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
+      nav a { font-size: 0.65rem; letter-spacing: 2px; }
+      section { padding: 4rem 1.5rem; }
+      .schedule-item { flex-direction: column; }
+      .schedule-time { margin-bottom: 0.3rem; }
+      .hero { padding: 2rem 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      nav ul { gap: 0.8rem; }
+      .nav-hide-mobile { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════ NAVIGATION ════════════ -->
+<nav id="mainNav">
+  <ul>
+    <li><a href="#story" class="nav-hide-mobile">Our Story</a></li>
+    <li><a href="#party" class="nav-hide-mobile">Wedding Party</a></li>
+    <li><a class="nav-monogram" href="#top">N &amp; S</a></li>
+    <li><a href="#details" class="nav-hide-mobile">Details</a></li>
+    <li><a href="#rsvp">RSVP</a></li>
+  </ul>
+</nav>
+
+<!-- ════════════ HERO ════════════ -->
+<section class="hero" id="top">
+  <p class="hero-subtitle">Together with their families</p>
+  <h1>
+    Naomi
+    <span class="ampersand">&amp;</span>
+    Sean
+  </h1>
+  <p class="hero-date">The Twenty-Sixth of September, Two Thousand and Twenty-Six</p>
+  <p class="hero-tagline">She said yes. We're still not sure why.</p>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ════════════ OUR STORY ════════════ -->
+<section id="story">
+  <p class="section-label fade-in">How It All Began</p>
+  <h2 class="section-title fade-in">Our Story</h2>
+  <div class="section-divider fade-in"></div>
+
+  <p class="body-text fade-in">
+    Every love story has a hero and a person who is just sort of... there. 
+    <span class="highlight">Naomi Priest</span> is a woman of intelligence, grace, and impeccable judgement — except, apparently, in one notable area.
+  </p>
+  <p class="body-text fade-in">
+    <span class="highlight">Sean Gleeson</span> is a man who once described himself as "a catch." 
+    No one in the room agreed, but Naomi — blessed with either extraordinary patience or mild delusion — saw something the rest of us couldn't. 
+    We suspect it was pity.
+  </p>
+  <p class="body-text fade-in">
+    What followed was a love story for the ages. Or at least a love story that has aged Sean considerably. 
+    Naomi, of course, looks better every year. Sean looks like he's been left in the sun too long.
+  </p>
+
+  <div class="quote-block fade-in">
+    He's not the man of my dreams, but he is the man who falls asleep during all of my dreams.
+    <br><small style="font-size: 0.6em; font-style: normal; color: var(--text-light);">— Naomi, allegedly</small>
+  </div>
+</section>
+
+<!-- ════════════ TIMELINE ════════════ -->
+<section>
+  <p class="section-label fade-in">The Journey</p>
+  <h2 class="section-title fade-in">How We Got Here</h2>
+  <div class="section-divider fade-in"></div>
+
+  <div class="timeline">
+    <div class="timeline-item fade-in">
+      <p class="timeline-year">The First Meeting</p>
+      <h3 class="timeline-title">An Unremarkable Introduction</h3>
+      <p class="timeline-text">
+        Naomi met Sean and thought, "He seems nice enough." Sean met Naomi and immediately began punching well above his weight. 
+        He has not stopped since. The referee has been asked to intervene on multiple occasions.
+      </p>
+    </div>
+    <div class="timeline-item fade-in">
+      <p class="timeline-year">The First Date</p>
+      <h3 class="timeline-title">Lowered Expectations</h3>
+      <p class="timeline-text">
+        Sean planned what he called "a dead sophisticated evening." It was Nando's. 
+        To his credit, he did order the halloumi starter, which Naomi maintains is the only reason there was a second date. 
+        He also wore a shirt with a collar, which his mates later confirmed was borrowed.
+      </p>
+    </div>
+    <div class="timeline-item fade-in">
+      <p class="timeline-year">Moving In Together</p>
+      <h3 class="timeline-title">Naomi Discovers the Truth</h3>
+      <p class="timeline-text">
+        Naomi learned that Sean owns four near-identical grey t-shirts and considers this "a capsule wardrobe." 
+        She also discovered his belief that dishes "soak themselves" and that leaving cupboard doors open is a personality trait, not a hazard. 
+        Love persevered.
+      </p>
+    </div>
+    <div class="timeline-item fade-in">
+      <p class="timeline-year">The Proposal</p>
+      <h3 class="timeline-title">He Actually Managed It</h3>
+      <p class="timeline-text">
+        Against all reasonable expectation, Sean planned a genuinely lovely proposal. 
+        Naomi cried. Sean cried harder. The ring was beautiful — Naomi's best friend helped him choose it because, left to his own devices, 
+        Sean would have bought something from a market stall and called it "vintage."
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ ACCENT BAND ════════════ -->
+<div class="accent-band">
+  <p class="section-label fade-in">A Note from the Bride</p>
+  <h2 class="section-title fade-in">Why Him?</h2>
+  <div class="section-divider fade-in"></div>
+  <p class="body-text fade-in" style="max-width: 580px; margin: 0 auto;">
+    People ask me this constantly. Genuinely. At least once a week. My mother asks more often. 
+    The truth is, beneath the questionable fashion choices and the alarming number of football podcasts, 
+    there is a man with the biggest heart I've ever known. He makes me laugh every single day — 
+    mostly at him, occasionally with him. He is kind, gentle, and will absolutely cry reading this. 
+    I love him ridiculously.
+  </p>
+  <p class="body-text fade-in" style="max-width: 580px; margin: 1.5rem auto 0; font-style: italic; opacity: 0.8;">
+    He's also tall, which is useful for reaching things.
+  </p>
+</div>
+
+<!-- ════════════ WEDDING PARTY ════════════ -->
+<section id="party">
+  <p class="section-label fade-in">The Brave Volunteers</p>
+  <h2 class="section-title fade-in">Wedding Party</h2>
+  <div class="section-divider fade-in"></div>
+
+  <div class="party-grid">
+    <div class="party-card fade-in">
+      <div class="card-icon">👰</div>
+      <h3>Emma</h3>
+      <p class="card-role">Maid of Honour</p>
+      <p>Naomi's oldest friend and the woman who will be holding emergency snacks, tissues, and a spare pair of flats. Has been rehearsing her speech since the engagement. Sean should be worried.</p>
+    </div>
+    <div class="party-card fade-in">
+      <div class="card-icon">🤵</div>
+      <h3>Dave</h3>
+      <p class="card-role">Best Man</p>
+      <p>Sean's best mate since school. Has been entrusted with the rings, which is either a touching gesture of faith or a catastrophic lapse in judgement. We've arranged a backup.</p>
+    </div>
+    <div class="party-card fade-in">
+      <div class="card-icon">💐</div>
+      <h3>Sophie &amp; Lauren</h3>
+      <p class="card-role">Bridesmaids</p>
+      <p>Responsible for making Naomi look even more stunning and for keeping Sean's family away from the free bar before the speeches. A critical role.</p>
+    </div>
+    <div class="party-card fade-in">
+      <div class="card-icon">🎩</div>
+      <h3>Tom &amp; Jamie</h3>
+      <p class="card-role">Groomsmen</p>
+      <p>Selected for their ability to make Sean look good by comparison. This was the primary criteria. They also scrub up reasonably well and can be trusted not to lose their shoes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ DETAILS ════════════ -->
+<section id="details">
+  <p class="section-label fade-in">The Important Bits</p>
+  <h2 class="section-title fade-in">Wedding Details</h2>
+  <div class="section-divider fade-in"></div>
+
+  <div class="details-grid">
+    <div class="detail-block fade-in">
+      <div class="detail-icon">⛪</div>
+      <h3>Ceremony</h3>
+      <p>St. Mary's Church<br>2:00 PM<br><em>Please arrive early. Sean will be nervously pacing from 11 AM.</em></p>
+    </div>
+    <div class="detail-block fade-in">
+      <div class="detail-icon">🥂</div>
+      <h3>Reception</h3>
+      <p>The Grange Estate<br>4:00 PM onwards<br><em>Open bar until Sean's dad starts singing. Then we reassess.</em></p>
+    </div>
+    <div class="detail-block fade-in">
+      <div class="detail-icon">👗</div>
+      <h3>Dress Code</h3>
+      <p>Formal / Black Tie Optional<br><em>Sean has been told he cannot wear trainers. He is still appealing this decision.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ SCHEDULE ════════════ -->
+<section>
+  <p class="section-label fade-in">On the Day</p>
+  <h2 class="section-title fade-in">Order of Events</h2>
+  <div class="section-divider fade-in"></div>
+
+  <ul class="schedule-list">
+    <li class="schedule-item fade-in">
+      <span class="schedule-time">2:00 PM</span>
+      <div class="schedule-event">
+        <h4>Ceremony</h4>
+        <p>Sean attempts to say his vows without crying. Odds are not in his favour.</p>
+      </div>
+    </li>
+    <li class="schedule-item fade-in">
+      <span class="schedule-time">3:00 PM</span>
+      <div class="schedule-event">
+        <h4>Drinks Reception</h4>
+        <p>Champagne, canapes, and group photos where Sean will be told to stand up straight at least four times.</p>
+      </div>
+    </li>
+    <li class="schedule-item fade-in">
+      <span class="schedule-time">5:00 PM</span>
+      <div class="schedule-event">
+        <h4>Wedding Breakfast</h4>
+        <p>Three courses of food that is considerably fancier than anything Sean has ever cooked.</p>
+      </div>
+    </li>
+    <li class="schedule-item fade-in">
+      <span class="schedule-time">6:30 PM</span>
+      <div class="schedule-event">
+        <h4>Speeches</h4>
+        <p>Sean will cry. The best man will be savage. Naomi's dad will be dignified. Place your bets.</p>
+      </div>
+    </li>
+    <li class="schedule-item fade-in">
+      <span class="schedule-time">8:00 PM</span>
+      <div class="schedule-event">
+        <h4>First Dance</h4>
+        <p>Naomi will look elegant. Sean has been having lessons. Results may vary.</p>
+      </div>
+    </li>
+    <li class="schedule-item fade-in">
+      <span class="schedule-time">8:30 PM</span>
+      <div class="schedule-event">
+        <h4>Evening Reception</h4>
+        <p>Dancing, drinks, and Sean finally being allowed to loosen his tie.</p>
+      </div>
+    </li>
+    <li class="schedule-item fade-in">
+      <span class="schedule-time">Midnight</span>
+      <div class="schedule-event">
+        <h4>Carriages</h4>
+        <p>Off you go. Unless you're Dave, in which case we've booked you a taxi preemptively.</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- ════════════ FAQ ════════════ -->
+<section>
+  <p class="section-label fade-in">You Might Be Wondering</p>
+  <h2 class="section-title fade-in">Frequently Asked Questions</h2>
+  <div class="section-divider fade-in"></div>
+
+  <div class="faq-list">
+    <div class="faq-item fade-in">
+      <div class="faq-question">Can I bring a plus one?</div>
+      <div class="faq-answer">
+        <p>If your invitation says "and guest," absolutely. If it doesn't, we're afraid not — we love you, but we do not love you plus a person we've never met. Sean tried to invite his five-a-side team and was firmly overruled.</p>
+      </div>
+    </div>
+    <div class="faq-item fade-in">
+      <div class="faq-question">Are children welcome?</div>
+      <div class="faq-answer">
+        <p>We adore your children. We really do. But this is an adults-only celebration. Think of it as a rare night off. You deserve it. Sean is basically a large child anyway, so the quota is filled.</p>
+      </div>
+    </div>
+    <div class="faq-item fade-in">
+      <div class="faq-question">What should I wear?</div>
+      <div class="faq-answer">
+        <p>Formal attire, please. Suits, dresses, something you'd feel smashing in. The only person exempt from looking good is Sean, who will be doing his absolute best and we must all be supportive.</p>
+      </div>
+    </div>
+    <div class="faq-item fade-in">
+      <div class="faq-question">Is there parking?</div>
+      <div class="faq-answer">
+        <p>Yes, The Grange has ample parking. However, given the open bar situation, we'd strongly recommend taxis. Sean's uncle has already volunteered to be designated driver, but we've seen him at weddings before. Don't trust it.</p>
+      </div>
+    </div>
+    <div class="faq-item fade-in">
+      <div class="faq-question">What about gifts?</div>
+      <div class="faq-answer">
+        <p>Your presence is the greatest gift. Truly. But if you're feeling generous, we've set up a small honeymoon fund. Sean wanted to register at Argos. Naomi has handled it.</p>
+      </div>
+    </div>
+    <div class="faq-item fade-in">
+      <div class="faq-question">Will there be vegetarian options?</div>
+      <div class="faq-answer">
+        <p>Absolutely. We're catering for all dietary requirements — just let us know on your RSVP. Sean didn't know what "dietary requirements" meant until 2024, but he's learning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ RSVP ════════════ -->
+<div class="rsvp-section" id="rsvp">
+  <p class="section-label fade-in">Don't Be Shy</p>
+  <h2 class="section-title fade-in">RSVP</h2>
+  <div class="section-divider fade-in"></div>
+
+  <p class="body-text fade-in" style="color: rgba(255,255,255,0.85); margin-bottom: 2.5rem;">
+    Please let us know if you can make it by the 1st of August.<br>
+    If you decline, Naomi will understand. Sean will pretend not to be devastated.<br>
+    He will fail.
+  </p>
+
+  <form class="rsvp-form fade-in" onsubmit="handleRSVP(event)">
+    <div class="form-group">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" placeholder="As it appears on the invitation, ideally">
+    </div>
+    <div class="form-group">
+      <label for="attendance">Will You Be Joining Us?</label>
+      <select id="attendance">
+        <option value="">Please select</option>
+        <option value="yes">Joyfully accepts — wouldn't miss it</option>
+        <option value="no">Regretfully declines — will think of you fondly</option>
+        <option value="maybe">It's complicated — Sean still owes me money</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="dietary">Dietary Requirements</label>
+      <input type="text" id="dietary" placeholder="Vegan, vegetarian, can't sit near Sean's uncle, etc.">
+    </div>
+    <div class="form-group">
+      <label for="song">Song Request</label>
+      <input type="text" id="song" placeholder="Sean will be vetting these. Standards are low.">
+    </div>
+    <div class="form-group">
+      <label for="message">A Message for the Couple</label>
+      <textarea id="message" placeholder="Words of wisdom, unsolicited advice, or a roast of Sean..."></textarea>
+    </div>
+    <button type="submit" class="btn-rsvp">Send With Love</button>
+  </form>
+</div>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer>
+  <p class="footer-names">Naomi &amp; Sean</p>
+  <p class="footer-tagline">Two becoming one — heaven help us all</p>
+  <p>26 · 09 · 2026</p>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // Fade-in on scroll
+  const observerOpts = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOpts);
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // FAQ toggle
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      q.parentElement.classList.toggle('open');
+    });
+  });
+
+  // RSVP handler
+  function handleRSVP(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const btn = e.target.querySelector('.btn-rsvp');
+    if (name.trim()) {
+      btn.textContent = 'Sean Is Thrilled. Naomi Is Relieved.';
+      btn.style.background = '#fff';
+      btn.style.color = 'var(--sage-dark)';
+      btn.disabled = true;
+    }
+  }
+</script>
+
+</body>
+</html>
