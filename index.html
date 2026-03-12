@@ -1102,6 +1102,8 @@
   ║    Konami code (↑↑↓↓←→←→BA) → The real MVP          ║
   ║    Click "Sean" in the hero 3 times → Sad trombone   ║
   ║    Shake your phone → Confetti!                      ║
+  ║    Tap the date 5 times → Countdown to the wedding   ║
+  ║    Rotate phone to landscape → A little message      ║
   ║    Submit the RSVP form → A friendly disclaimer      ║
   ║                                                      ║
   ║  With love from Joe & Bansri x                       ║
@@ -1348,6 +1350,31 @@
     } else {
       konamiIndex = 0;
     }
+  });
+
+  // Tap date 5 times → countdown
+  let dateTapCount = 0;
+  let dateTapTimer;
+  document.querySelector('.hero-date').addEventListener('click', () => {
+    dateTapCount++;
+    clearTimeout(dateTapTimer);
+    dateTapTimer = setTimeout(() => { dateTapCount = 0; }, 1500);
+    if (dateTapCount >= 5) {
+      dateTapCount = 0;
+      const wedding = new Date('2027-04-10');
+      const now = new Date();
+      const days = Math.ceil((wedding - now) / (1000 * 60 * 60 * 24));
+      showToast(`${days} days to go! 🥂`);
+    }
+  });
+
+  // Landscape orientation toast
+  window.addEventListener('orientationchange', () => {
+    setTimeout(() => {
+      if (window.innerWidth > window.innerHeight) {
+        showToast('Wrong way round, but we respect the commitment');
+      }
+    }, 300);
   });
 
   // Nav scroll effect
