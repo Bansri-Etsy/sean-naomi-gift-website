@@ -211,8 +211,8 @@
 
     /* ── Sections ── */
     section {
-      padding: 6rem 2rem;
-      max-width: 900px;
+      padding: 6rem 4rem;
+      max-width: 100%;
       margin: 0 auto;
     }
 
@@ -246,7 +246,7 @@
       font-size: 0.95rem;
       line-height: 1.9;
       color: var(--text);
-      max-width: 640px;
+      max-width: 800px;
       margin: 0 auto;
       text-align: center;
     }
@@ -405,63 +405,47 @@
       line-height: 1.7;
     }
 
-    /* ── Details Card ── */
-    .details-card {
-      max-width: 600px;
+    /* ── Details Grid ── */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
       margin: 0 auto;
-      background: var(--sage);
-      color: #fff;
-      border-radius: 3px;
-      padding: 3.5rem 3rem;
+    }
+
+    .detail-block {
       text-align: center;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      padding: 1.5rem 1rem;
     }
 
-    .details-card .detail-row {
-      padding: 1.5rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
+    .detail-block .detail-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
     }
 
-    .details-card .detail-row:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .details-card .detail-row:first-child {
-      padding-top: 0;
-    }
-
-    .details-card .detail-label {
-      font-size: 0.65rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-    }
-
-    .details-card h3 {
+    .detail-block h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: #fff;
-      margin-bottom: 0.3rem;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 0.4rem;
     }
 
-    .details-card p {
+    .detail-block p {
       font-size: 0.88rem;
-      color: rgba(255,255,255,0.85);
+      color: var(--text-light);
       line-height: 1.7;
     }
 
-    .details-card em {
-      color: rgba(255,255,255,0.6);
+    .detail-block em {
+      color: var(--text-light);
       font-size: 0.82rem;
     }
 
     /* ── Schedule ── */
     .schedule-list {
-      max-width: 550px;
+      max-width: 700px;
       margin: 0 auto;
       list-style: none;
     }
@@ -496,7 +480,7 @@
 
     /* ── FAQ ── */
     .faq-list {
-      max-width: 650px;
+      max-width: 800px;
       margin: 0 auto;
     }
 
@@ -656,10 +640,11 @@
 
     /* ── Photo Gallery ── */
     .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       gap: 1.5rem;
-      max-width: 900px;
+      max-width: 600px;
       margin: 0 auto;
     }
 
@@ -670,6 +655,7 @@
       background: var(--warm-white);
       box-shadow: 0 2px 20px rgba(0,0,0,0.06);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
     }
 
     .gallery-item:hover {
@@ -794,7 +780,7 @@
     @media (max-width: 768px) {
       nav ul { gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
       nav a { font-size: 0.65rem; letter-spacing: 2px; }
-      section { padding: 4rem 1.5rem; }
+      section { padding: 4rem 1.5rem; max-width: 100%; }
       .schedule-item { flex-direction: column; }
       .schedule-time { margin-bottom: 0.3rem; }
       .hero { padding: 2rem 1rem; }
@@ -846,11 +832,9 @@
   <div class="section-divider fade-in"></div>
 
   <p class="body-text fade-in">
-    <span class="highlight">Naomi Priest</span> is a project manager — a woman who runs half marathons, keeps complex systems on track, and radiates calm competence in all things.
+    <span class="highlight">Naomi Priest</span> is a project manager - a woman who runs half marathons, keeps complex systems on track, and radiates calm competence in all things.
     <span class="highlight">Sean Gleeson</span> is a brilliant musician and teacher with a huge heart, an infectious laugh, and a gift for making every room he walks into more fun.
-  </p>
-  <p class="body-text fade-in">
-    They met at <span class="highlight">Leeds Opera</span> — Naomi on stage, Sean conducting — and the rest is history.
+    They met at <span class="highlight">Leeds Opera</span> - Naomi on stage, Sean conducting - and the rest is history.
   </p>
   <p class="body-text fade-in">
     Naomi has reluctantly got Sean into running — they're running another half marathon together — and they've recently bought a house that they're doing extensive renovations on.
@@ -866,7 +850,7 @@
 <!-- ════════════ PHOTO GALLERY ════════════ -->
 <section id="gallery">
   <p class="section-label fade-in">Photographic Evidence</p>
-  <h2 class="section-title fade-in">The Groom, Unfiltered</h2>
+  <h2 class="section-title fade-in">Meet the Couple</h2>
   <div class="section-divider fade-in"></div>
 
   <div class="gallery-grid">
@@ -885,13 +869,6 @@
       </div>
     </div>
     <div class="gallery-item fade-in">
-      <img src="photos/sean-drink.png" alt="Sean at a bar wearing a Work In Progress t-shirt">
-      <div class="gallery-caption">
-        <p class="caption-title">Work In Progress</p>
-        <p>His t-shirt's words, not ours.</p>
-      </div>
-    </div>
-    <div class="gallery-item fade-in">
       <img src="photos/naomi-sean-race.png" alt="Naomi and Sean after finishing a 10K">
       <div class="gallery-caption">
         <p class="caption-title">The Runners</p>
@@ -905,13 +882,6 @@
         <p>Two people who are absolutely perfect for each other, acting daft on a greyhound statue. As one does.</p>
       </div>
     </div>
-    <div class="gallery-item gallery-feature fade-in">
-      <img src="photos/naomi-beer.png" alt="Naomi looking lovely with a beer">
-      <div class="gallery-caption">
-        <p class="caption-title">The Actual Star of This Wedding</p>
-        <p>Naomi. Looking gorgeous. Enjoying a Brooklyn Lager. The woman of the hour.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -921,7 +891,7 @@
   <h2 class="section-title fade-in">Wedding Party</h2>
   <div class="section-divider fade-in"></div>
 
-  <div class="party-grid" style="max-width: 400px;">
+  <div class="party-grid" style="max-width: 500px;">
     <div class="party-card fade-in">
       <div class="card-icon">🤵</div>
       <h3>Joe Gleeson</h3>
@@ -941,20 +911,19 @@
   <h2 class="section-title fade-in">Wedding Details</h2>
   <div class="section-divider fade-in"></div>
 
-  <div class="details-card fade-in">
-    <div class="detail-row">
-      <p class="detail-label">When</p>
+  <div class="details-grid">
+    <div class="detail-block fade-in">
+      <div class="detail-icon">📅</div>
       <h3>Saturday, 10th April 2027</h3>
       <em>You're not going to want to miss this</em>
     </div>
-    <div class="detail-row">
-      <p class="detail-label">Where</p>
+    <div class="detail-block fade-in">
+      <div class="detail-icon">🏡</div>
       <h3>The Normans</h3>
-      <p>Normans Farm, Bilbrough, York, YO23 3PQ</p>
-      <em>It's absolutely gorgeous. You're going to love it.</em>
+      <p>Normans Farm, Bilbrough<br>York, YO23 3PQ</p>
     </div>
-    <div class="detail-row">
-      <p class="detail-label">Dress Code</p>
+    <div class="detail-block fade-in">
+      <div class="detail-icon">👗</div>
       <h3>Formal / Black Tie Optional</h3>
       <em>Dress to impress. You know the drill.</em>
     </div>
