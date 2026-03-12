@@ -106,9 +106,12 @@
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        url('photos/naomi-beer.png') left center / contain no-repeat,
-        url('photos/sean-hero.png') right center / contain no-repeat;
+      background-image:
+        url('photos/naomi-beer.png'),
+        url('photos/sean-hero.png');
+      background-position: left center, right center;
+      background-size: 50% auto;
+      background-repeat: no-repeat;
     }
 
     .hero::after {
