@@ -109,20 +109,14 @@
       background:
         url('photos/naomi-beer.png') left center / 50% 100% no-repeat,
         url('photos/sean-hero.png') right center / 50% 100% no-repeat;
-      opacity: 0.85;
     }
 
     .hero::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(253, 248, 240, 0.3) 0%,
-        rgba(253, 248, 240, 0.15) 40%,
-        rgba(253, 248, 240, 0.5) 80%,
-        var(--cream) 100%
-      );
+      background: rgba(253, 248, 240, 0.55);
+      backdrop-filter: brightness(1.05);
     }
 
     .hero-subtitle {
