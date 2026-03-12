@@ -32,7 +32,7 @@
       color: var(--text);
       background: var(--cream);
       line-height: 1.7;
-      font-weight: 300;
+      font-weight: 400;
       overflow-x: hidden;
     }
 
@@ -78,7 +78,7 @@
     nav .nav-monogram {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.4rem;
-      font-weight: 300;
+      font-weight: 500;
       letter-spacing: 4px;
     }
 
@@ -193,7 +193,7 @@
 
     /* ── Sections ── */
     section {
-      padding: 6rem 4rem;
+      padding: 3rem 4rem;
       max-width: 100%;
       margin: 0 auto;
     }
@@ -205,14 +205,14 @@
       color: var(--sage);
       text-align: center;
       margin-bottom: 0.5rem;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .section-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2.2rem, 5vw, 3.5rem);
       text-align: center;
-      font-weight: 300;
+      font-weight: 500;
       color: var(--charcoal);
       margin-bottom: 1rem;
     }
@@ -267,7 +267,7 @@
     .accent-band {
       background: var(--sage);
       color: #fff;
-      padding: 5rem 2rem;
+      padding: 2.5rem 2rem;
       max-width: 100%;
       text-align: center;
     }
@@ -401,6 +401,15 @@
       padding: 1.5rem 1rem;
     }
 
+    .detail-block .detail-label {
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--sage);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
     .detail-block .detail-icon {
       font-size: 2rem;
       margin-bottom: 0.8rem;
@@ -513,7 +522,7 @@
     .rsvp-section {
       background: linear-gradient(165deg, var(--sage) 0%, var(--sage-dark) 100%);
       color: #fff;
-      padding: 6rem 2rem;
+      padding: 3rem 2rem;
       max-width: 100%;
       text-align: center;
     }
@@ -552,7 +561,7 @@
       color: #fff;
       font-family: 'Montserrat', sans-serif;
       font-size: 0.88rem;
-      font-weight: 300;
+      font-weight: 400;
       transition: border-color 0.3s;
     }
 
@@ -594,7 +603,7 @@
     /* ── Footer ── */
     footer {
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 2rem 2rem;
       background: var(--charcoal);
       color: rgba(255,255,255,0.6);
     }
@@ -603,7 +612,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 2rem;
       color: #fff;
-      font-weight: 300;
+      font-weight: 500;
       margin-bottom: 0.5rem;
     }
 
@@ -734,7 +743,7 @@
       transform: translate(-50%, -50%) scale(0);
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 7vw, 4rem);
-      font-weight: 300;
+      font-weight: 500;
       color: var(--charcoal);
       background: rgba(253, 248, 240, 0.92);
       padding: 1.5rem 3rem;
@@ -765,7 +774,7 @@
     @media (max-width: 768px) {
       nav ul { gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
       nav a { font-size: 0.65rem; letter-spacing: 2px; }
-      section { padding: 4rem 1.5rem; max-width: 100%; }
+      section { padding: 2rem 1.5rem; max-width: 100%; }
       .schedule-item { flex-direction: column; }
       .schedule-time { margin-bottom: 0.3rem; }
       .hero { padding: 2rem 1rem; }
@@ -885,18 +894,15 @@
   <div class="details-grid">
     <div class="detail-block fade-in">
       <div class="detail-icon">📅</div>
+      <p class="detail-label">When</p>
       <h3>Saturday, 10th April 2027</h3>
       <em>You're not going to want to miss this</em>
     </div>
     <div class="detail-block fade-in">
       <div class="detail-icon">🏡</div>
+      <p class="detail-label">Where</p>
       <h3>The Normans</h3>
       <p>Normans Farm, Bilbrough<br>York, YO23 3PQ</p>
-    </div>
-    <div class="detail-block fade-in">
-      <div class="detail-icon">👗</div>
-      <h3>Formal / Black Tie Optional</h3>
-      <em>Dress to impress. You know the drill.</em>
     </div>
   </div>
 </section>
@@ -983,7 +989,7 @@
     <div class="faq-item fade-in">
       <div class="faq-question">What should I wear?</div>
       <div class="faq-answer">
-        <p>Maybe!</p>
+        <p>Clothes!</p>
       </div>
     </div>
     <div class="faq-item fade-in">
@@ -995,13 +1001,13 @@
     <div class="faq-item fade-in">
       <div class="faq-question">What about gifts?</div>
       <div class="faq-answer">
-        <p>Maybe!</p>
+        <p>We don't need another website - other gifts welcome though!</p>
       </div>
     </div>
     <div class="faq-item fade-in">
       <div class="faq-question">Will there be vegetarian options?</div>
       <div class="faq-answer">
-        <p>Maybe!</p>
+        <p>Hopefully!</p>
       </div>
     </div>
   </div>
@@ -1015,7 +1021,7 @@
 
   <p class="body-text fade-in" style="color: rgba(255,255,255,0.85); margin-bottom: 2.5rem;">
     Please let us know if you can make it by the 1st of February.<br>
-    If you decline, Naomi and Sean will understand. Joe will eat your canapes.
+    If you decline, Naomi and Sean will understand but Joe will eat your canapes.
   </p>
 
   <form class="rsvp-form fade-in" onsubmit="handleRSVP(event)">
@@ -1038,7 +1044,7 @@
     </div>
     <div class="form-group">
       <label for="song">Song Request</label>
-      <input type="text" id="song" placeholder="The band takes requests. Make it a good one">
+      <input type="text" id="song" placeholder="The band does not take requests, we just want to judge your music taste">
     </div>
     <div class="form-group">
       <label for="message">A Message for the Couple</label>
