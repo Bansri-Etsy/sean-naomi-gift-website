@@ -1070,7 +1070,9 @@
       <label for="message">A Message for the Couple</label>
       <textarea id="message" placeholder="Words of wisdom, a favourite memory, or anything you'd like to share..."></textarea>
     </div>
-    <button type="submit" class="btn-rsvp">Send With Love</button>
+    <button type="submit" class="btn-rsvp" data-send-mode="love">Send With Love</button>
+    <button type="submit" class="btn-rsvp" data-send-mode="live">Send With Live</button>
+    <button type="submit" class="btn-rsvp" data-send-mode="laugh">Send With Laugh</button>
   </form>
 </div>
 
@@ -1410,11 +1412,21 @@
     e.preventDefault();
     const name = document.getElementById('name').value;
     if (!name.trim()) return;
+    const sendMode = e.submitter?.dataset?.sendMode || 'love';
+    let modeLine = 'Classic. Romantic. Dependable.';
+    if (sendMode === 'live') {
+      modeLine = 'Bold choice. Slight typo energy. We respect it.';
+    } else if (sendMode === 'laugh') {
+      modeLine = 'Excellent. Correct vibe. Ten out of ten banter.';
+    }
     const overlay = document.createElement('div');
     overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(58,58,58,0.6);display:flex;justify-content:center;align-items:center;cursor:pointer;backdrop-filter:blur(4px);';
     overlay.innerHTML = `
       <div style="background:var(--cream);max-width:480px;width:90%;padding:3rem 2.5rem;border-radius:3px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.2);">
         <p style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--charcoal);font-weight:300;margin-bottom:1rem;">Hold on a moment</p>
+        <p style="font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--sage);margin-bottom:1rem;">
+          ${modeLine}
+        </p>
         <p style="font-size:0.9rem;color:var(--text);line-height:1.8;margin-bottom:1.5rem;">
           This website is an engagement gift from Joe &amp; Bansri and is <strong>not</strong> the official wedding RSVP.
           Your response hasn't actually gone anywhere. Please don't panic.
