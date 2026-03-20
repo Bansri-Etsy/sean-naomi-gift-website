@@ -1023,7 +1023,7 @@
     <li class="schedule-item fade-in">
       <span class="schedule-time">5:00 PM</span>
       <div class="schedule-event">
-        <h4>Wedding Breakfast</h4>
+        <h4 id="wedding-breakfast" style="cursor:pointer">Wedding Breakfast</h4>
         <p>Three courses of something rather special. Details to follow.</p>
       </div>
     </li>
@@ -1243,6 +1243,7 @@
   ║    Click "Sean" in the hero 3 times → Sad trombone   ║
   ║    Shake your phone → Confetti!                      ║
   ║    Click any tiny 🥚 on the page → Bunny apocalypse  ║
+  ║    Click "Wedding Breakfast" → Fruit rain 🍇🍏🫐    ║
   ║    Tap the date 5 times → Countdown to the wedding   ║
   ║    Rotate phone to landscape → A little message      ║
   ║    Submit the RSVP form → A friendly disclaimer      ║
@@ -1510,6 +1511,62 @@
     }
     draw();
   }
+
+  // ── Easter Egg: Click Wedding Breakfast for fruit rain ──
+  function fruitRain() {
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:8000;pointer-events:none;overflow:hidden;';
+    const canvas = document.createElement('canvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    overlay.appendChild(canvas);
+    document.body.appendChild(overlay);
+
+    const ctx = canvas.getContext('2d');
+    const fruits = ['🍇', '🍏', '🫐'];
+    const pieces = [];
+    for (let i = 0; i < 85; i++) {
+      pieces.push({
+        emoji: fruits[Math.floor(Math.random() * fruits.length)],
+        x: Math.random() * canvas.width,
+        y: -30 - Math.random() * 200,
+        size: 22 + Math.random() * 18,
+        vy: 2 + Math.random() * 3,
+        vx: (Math.random() - 0.5) * 1.5,
+        rot: Math.random() * Math.PI * 2,
+        rv: (Math.random() - 0.5) * 0.06,
+      });
+    }
+
+    let frame = 0;
+    const maxFrames = 220;
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      pieces.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rot += p.rv;
+        p.vy += 0.05;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.font = `${p.size}px serif`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(p.emoji, 0, 0);
+        ctx.restore();
+      });
+      frame++;
+      if (frame < maxFrames) {
+        requestAnimationFrame(draw);
+      } else {
+        overlay.remove();
+      }
+    }
+    draw();
+  }
+
+  document.getElementById('wedding-breakfast').addEventListener('click', fruitRain);
 
   // ── Easter Egg: Click tiny eggs for bunny apocalypse ──
   let bunnyRampage = false;
