@@ -1445,8 +1445,9 @@
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const colours = ['#9CAF88','#C5A55A','#E8D5A3','#C9A9A6','#D4DFC7','#F2E0D6','#fff'];
-    const pieces = Array.from({ length: 120 }, () => ({
+    const colours = ['#9CAF88','#C5A55A','#E8D5A3','#C9A9A6','#D4DFC7','#F2E0D6','#fff','#E63946','#D62839','#C1121F'];
+    const confettiPieces = Array.from({ length: 380 }, () => ({
+      type: 'confetti',
       x: Math.random() * canvas.width,
       y: -20 - Math.random() * canvas.height * 0.5,
       w: 4 + Math.random() * 6,
@@ -1457,23 +1458,45 @@
       rot: Math.random() * Math.PI * 2,
       rv: (Math.random() - 0.5) * 0.15,
     }));
+    const rosePieces = Array.from({ length: 28 }, () => ({
+      type: 'rose',
+      x: Math.random() * canvas.width,
+      y: -30 - Math.random() * canvas.height * 0.4,
+      size: 18 + Math.random() * 14,
+      vy: 1.5 + Math.random() * 2.5,
+      vx: (Math.random() - 0.5) * 1.8,
+      rot: Math.random() * Math.PI * 2,
+      rv: (Math.random() - 0.5) * 0.08,
+    }));
+    const pieces = [...confettiPieces, ...rosePieces];
 
     setTimeout(() => textEl.classList.add('show'), 200);
 
     let frame = 0;
-    const maxFrames = 240;
+    const maxFrames = 280;
     function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       pieces.forEach(p => {
         p.x += p.vx;
         p.y += p.vy;
-        p.rot += p.rv;
-        p.vy += 0.04;
+        p.rot += (p.rv || 0);
+        if (p.type === 'confetti') {
+          p.vy += 0.04;
+        } else {
+          p.vy += 0.03;
+        }
         ctx.save();
         ctx.translate(p.x, p.y);
         ctx.rotate(p.rot);
-        ctx.fillStyle = p.colour;
-        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        if (p.type === 'rose') {
+          ctx.font = `${p.size}px serif`;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText('🌹', 0, 0);
+        } else {
+          ctx.fillStyle = p.colour;
+          ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        }
         ctx.restore();
       });
       frame++;
