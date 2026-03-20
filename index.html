@@ -1236,6 +1236,7 @@
   ║    ann-marie  → Mother of the groom                  ║
   ║    cute       → The Gleeson kids, once upon a time   ║
   ║    strong     → A special video                      ║
+  ║    help       → Confetti!                            ║
   ║                                                      ║
   ║  OTHER TRIGGERS:                                     ║
   ║    Konami code (↑↑↓↓←→←→BA) → The real MVP          ║
@@ -1385,6 +1386,10 @@
       overlay.style.display = 'flex';
       video.currentTime = 0;
       video.play();
+    }
+    if (typedKeys.endsWith('help')) {
+      typedKeys = '';
+      fireConfetti();
     }
   });
 
